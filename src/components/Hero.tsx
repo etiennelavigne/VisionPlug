@@ -13,15 +13,15 @@ export default function Hero() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero-bg-3.jpg"
+            src="/hero-bg-4.jpg"
             alt="Background"
             fill
             className="object-cover"
             priority
           />
           {/* Dark Overlay for readability */}
-          <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/50 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
         </div>
 
         {/* Floating Abstract Shape / Person Placeholder */}
@@ -96,12 +96,6 @@ export default function Hero() {
           </div>
         </div>
 
-      </div>
-
-      {/* Bottom Dark Section (Visible below the rounded corners) */}
-      <div className="w-full bg-neutral-950 py-12 px-6 text-center">
-        <p className="text-neutral-500 text-sm">TRUSTED BY BRANDS I'VE HELPED SHAPE</p>
-        {/* Logos would go here */}
       </div>
     </section>
   );
