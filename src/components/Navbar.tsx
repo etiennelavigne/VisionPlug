@@ -23,8 +23,8 @@ export default function Navbar() {
             </div>
 
             <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#" className="hover:opacity-70 transition-opacity">Accueil</a>
-                <a href="#" className="hover:opacity-70 transition-opacity">Projets</a>
+                <a href="/" className="hover:opacity-70 transition-opacity">Accueil</a>
+                <a href="/projets" className="hover:opacity-70 transition-opacity">Projets</a>
                 <a href="#" className="hover:opacity-70 transition-opacity">À propos</a>
                 <a href="#" className="bg-[#E3D5CA] text-neutral-950 px-6 py-2.5 rounded-full font-medium border border-transparent hover:bg-transparent hover:text-[#E3D5CA] hover:border-[#E3D5CA] hover:scale-105 transition-all duration-300 flex items-center gap-2 shadow-[0_0_15px_rgba(227,213,202,0.3)]">
                     Contact <span className="text-lg">→</span>

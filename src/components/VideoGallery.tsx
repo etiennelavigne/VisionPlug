@@ -4,15 +4,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Play } from 'lucide-react';
-
-const projects = [
-    { id: 1, title: "Basketball", category: "Sport", videoId: "LzrfOS0vvAI", image: "/vignette-basketball-2.jpg" },
-    { id: 2, title: "Silent Echoes", category: "Documentary", videoId: "", image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" },
-    { id: 3, title: "Kinésithérapeute", category: "Commercial", videoId: "HlnicLFmTdE", image: "/vignette-kine-2.jpg" },
-    { id: 4, title: "Abstract Flow", category: "Art/Experimental", videoId: "ysz5S6P_z-U", image: "https://images.unsplash.com/photo-1472214103451-9374bd1c7dd1?auto=format&fit=crop&w=800&q=80" },
-    { id: 5, title: "Fashion Week", category: "Event", videoId: "9bZkp7q19f0", image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80" },
-    { id: 6, title: "Culinary Journey", category: "Brand", videoId: "hTWKbfoikeg", image: "https://images.unsplash.com/photo-1518173946633-4da23fb077d8?auto=format&fit=crop&w=800&q=80" },
-];
+import { projects } from '@/data/projects';
 
 export default function VideoGallery() {
     const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -27,12 +19,12 @@ export default function VideoGallery() {
                     transition={{ duration: 0.6 }}
                     className="mb-12"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">PROJETS RÉCENTS</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4">DERNIÈRES RÉALISATIONS</h2>
                     <div className="h-1 w-20 bg-white/20" />
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
+                    {projects.slice(0, 3).map((project, index) => (
                         <motion.div
                             key={project.id}
                             layoutId={`card-${project.id}`}
