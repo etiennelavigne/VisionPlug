@@ -34,17 +34,37 @@ export default function VideoGallery() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group cursor-pointer"
+                            whileHover={{ scale: 1.02 }}
+                            className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-lg"
                         >
-                            <div className={`aspect-video w-full ${project.color} rounded-sm overflow-hidden relative mb-4`}>
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
-                                {/* Placeholder for video thumbnail */}
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">View Project</span>
+                            {/* Background Image (Placeholder) */}
+                            {/* Using Unsplash source for demo purposes as user requested "image style" */}
+                            <div className={`absolute inset-0 bg-neutral-800`}>
+                                <img
+                                    src={`https://images.unsplash.com/photo-${[
+                                        '1492691527719-9d1e07e534b4', // Landscape
+                                        '1470071459604-3b5ec3a7fe05', // Nature
+                                        '1447752875204-b2f9798c641c', // Forest
+                                        '1472214103451-9374bd1c7dd1', // Nature 2
+                                        '1465146344425-f00d5f5c8f07', // Dark
+                                        '1518173946633-4da23fb077d8'  // Abstract
+                                    ][index % 6]}?auto=format&fit=crop&w=800&q=80`}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            </div>
+
+                            {/* Content Overlay */}
+                            <div className="absolute bottom-0 left-0 p-6 w-full">
+                                <p className="text-xs font-medium text-orange-200/80 mb-1 tracking-wider uppercase">{project.category}</p>
+                                <div className="flex justify-between items-end">
+                                    <h3 className="text-2xl font-bold text-white leading-tight">{project.title}</h3>
+                                    <div className="bg-white text-black rounded-full p-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                    </div>
                                 </div>
                             </div>
-                            <h3 className="text-xl font-semibold group-hover:text-neutral-300 transition-colors">{project.title}</h3>
-                            <p className="text-sm text-neutral-500">{project.category}</p>
                         </motion.div>
                     ))}
                 </div>
