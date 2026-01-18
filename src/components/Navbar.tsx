@@ -9,15 +9,15 @@ export default function Navbar() {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-16 text-white"
+            className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-2 md:px-16 text-white"
         >
-            <a href="/" className="w-40 md:w-52 relative block">
+            <a href="/" className="h-24 md:h-40 w-64 md:w-[30rem] relative block">
                 <Image
                     src="/logo-white.png"
                     alt="Vision Logo"
                     width={200}
                     height={50}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-full object-contain"
                     priority
                 />
             </a>

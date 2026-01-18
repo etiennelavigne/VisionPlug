@@ -42,4 +42,18 @@ export const projects = [
         videoId: "hTWKbfoikeg",
         image: "https://images.unsplash.com/photo-1518173946633-4da23fb077d8?auto=format&fit=crop&w=800&q=80"
     },
+    {
+        id: 7,
+        title: "Villa Sunset",
+        category: "Immobilier",
+        videoId: "",
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: 8,
+        title: "Iceland Adventure",
+        category: "Voyage",
+        videoId: "",
+        image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80"
+    },
 ];

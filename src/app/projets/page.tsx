@@ -32,7 +32,7 @@ export default function ProjectsPage() {
                         transition={{ duration: 0.6 }}
                         className="mb-12"
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6">NOS RÉALISATIONS</h1>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6">RÉALISATIONS</h1>
                         <div className="h-1 w-20 bg-white/20 mb-8" />
 
                         {/* Filters */}

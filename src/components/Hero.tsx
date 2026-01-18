@@ -32,14 +32,7 @@ export default function Hero() {
         <div className="relative z-10 w-full max-w-7xl mx-auto flex-grow flex flex-col justify-center">
 
           {/* Top Label */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-white/90 font-medium text-lg mb-2"
-          >
-            Bienvenue chez
-          </motion.p>
+
 
           <div className="flex flex-col md:flex-row gap-12 items-end">
             {/* Big Title Mixed Typography */}
