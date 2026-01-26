@@ -1,36 +1,45 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useMotionValue, useAnimationFrame, animate } from 'framer-motion';
+import { motion, useMotionValue, useAnimationFrame, animate, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 
 const photos = [
-    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1542038784424-fa00ed49fc44?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1472214103451-9374bd1c7dd1?q=80&w=1000&auto=format&fit=crop",
+    // Rotated to start with 13534823.jpg
+    { src: "/carousel/pexels-vision-plug-310264943-13534823.jpg", width: 718 }, // ~16:10 (Landscape)
+    { src: "/carousel/pexels-vision-plug-310264943-34759904.jpg", width: 338 }, // 3:4 (Moved earlier)
+    { src: "/carousel/pexels-vision-plug-310264943-13739810.jpg", width: 312 }, // ~2:3
+    { src: "/carousel/pexels-vision-plug-310264943-34759586.jpg", width: 338 }, // 3:4
+    { src: "/carousel/pexels-vision-plug-310264943-13987140.jpg", width: 305 }, // ~2:3
+    { src: "/carousel/pexels-vision-plug-310264943-34760100.jpg", width: 300 }, // 2:3
+    { src: "/carousel/pexels-vision-plug-310264943-13741351.jpg", width: 300 }, // 2:3
+    { src: "/carousel/DSC02070.jpg", width: 300 }, // ~2:3 (Separated)
+    { src: "/carousel/pexels-vision-plug-310264943-34759590.jpg", width: 338 }, // 3:4
+    { src: "/carousel/pexels-vision-plug-310264943-14281584.jpg", width: 800 }, // 16:9 (Landscape)
+    { src: "/carousel/pexels-vision-plug-310264943-13987144.jpg", width: 300 }, // 2:3
+    { src: "/carousel/A7309638.jpg", width: 300 }, // 2:3 (Separated)
+    { src: "/carousel/DSC04153.jpg", width: 300 }, // 2:3 (Moved later)
 ];
 
-// Calculate approximate width of one set of items to know when to wrap
-// We have 6 items: 3 are 300px, 3 are 500px.
-// Total width = (3 * 300) + (3 * 500) = 900 + 1500 = 2400px
-// Plus gaps: 6 items * 24px (gap-6) = 144px
-// Total set width ≈ 2544px
-const ONE_SET_WIDTH = 2544;
+// Calculate approximate width of one set of items
+// Sum of widths: 300+300+300+338+800+300+300+338+718+300+312+338+305 = 4949px
+// Plus gaps: 13 items * 24px (gap-6) = 312px
+// Total set width = 5261px
+const ONE_SET_WIDTH = 5261;
 
 export default function PhotoCarousel() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { once: false, amount: 0.1 }); // Start when 10% visible
     const x = useMotionValue(0);
     const [isDragging, setIsDragging] = useState(false);
 
     useAnimationFrame((time, delta) => {
-        if (!isDragging) {
+        if (!isDragging && isInView) {
             // Move left by a fraction of delta (time since last frame)
             // Adjust divisor to change speed (higher = slower)
-            const moveBy = -delta / 25;
+            // 8 is fast
+            const moveBy = -delta / 8;
             let newX = x.get() + moveBy;
 
             // Infinite loop logic:
@@ -46,7 +55,7 @@ export default function PhotoCarousel() {
     });
 
     return (
-        <section className="py-24 bg-neutral-900 overflow-hidden relative border-t border-neutral-800">
+        <section className="py-24 bg-neutral-900 overflow-hidden relative border-t border-neutral-800" ref={containerRef}>
 
             {/* Header */}
             <div className="container mx-auto px-6 md:px-16 mb-12 flex justify-between items-end">
@@ -66,7 +75,7 @@ export default function PhotoCarousel() {
             </div>
 
             {/* Draggable Container */}
-            <div className="relative w-full cursor-grab active:cursor-grabbing" ref={containerRef}>
+            <div className="relative w-full cursor-grab active:cursor-grabbing">
                 <motion.div
                     className="flex gap-6 px-6"
                     style={{ x, width: "max-content" }}
@@ -80,16 +89,14 @@ export default function PhotoCarousel() {
                     onDragEnd={() => setIsDragging(false)}
                 >
                     {/* Render triple set to ensure screen coverage during loop reset */}
-                    {[...photos, ...photos, ...photos].map((src, index) => (
+                    {[...photos, ...photos, ...photos].map((photo, index) => (
                         <div
                             key={index}
-                            className={`relative flex-shrink-0 overflow-hidden rounded-lg transition-transform duration-500 hover:scale-[1.02] ${index % 6 === 0 || index % 6 === 2 || index % 6 === 4
-                                ? 'w-[300px] h-[450px]'
-                                : 'w-[500px] h-[450px]'
-                                }`}
+                            className="relative flex-shrink-0 overflow-hidden rounded-lg transition-transform duration-500 hover:scale-[1.02] h-[450px]"
+                            style={{ width: photo.width }}
                         >
                             <Image
-                                src={src}
+                                src={photo.src}
                                 alt={`Photo ${index}`}
                                 fill
                                 className="object-cover"

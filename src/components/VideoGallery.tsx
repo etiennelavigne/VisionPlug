@@ -17,10 +17,17 @@ export default function VideoGallery() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">DERNIÈRES RÉALISATIONS</h2>
-                    <div className="h-1 w-20 bg-white/20" />
+                    <div>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-4">DERNIÈRES RÉALISATIONS</h2>
+                        <div className="h-1 w-20 bg-white/20" />
+                    </div>
+
+                    <a href="/projets" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">
+                        <span className="uppercase tracking-widest text-sm">Voir tous les projets</span>
+                        <Play className="w-4 h-4 fill-current group-hover:translate-x-1 transition-transform" />
+                    </a>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

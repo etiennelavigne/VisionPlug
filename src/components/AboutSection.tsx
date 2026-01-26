@@ -54,7 +54,7 @@ export default function AboutSection() {
                         </p>
 
                         <a
-                            href="mailto:contact@visionplug.com"
+                            href="/contact"
                             className="inline-block border-2 border-neutral-900 text-neutral-900 px-8 py-3 rounded-full font-bold uppercase tracking-wider hover:bg-neutral-900 hover:text-[#E3D5CA] transition-colors duration-300"
                         >
                             Démarrer un projet

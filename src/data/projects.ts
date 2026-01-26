@@ -1,5 +1,45 @@
 export const projects = [
     {
+        id: 13,
+        title: "Film d'entreprise",
+        category: "Documentaire",
+        videoId: "8Oq8Fy59j3Y",
+        image: "/vignette-entreprise.png",
+        fit: "object-cover"
+    },
+    {
+        id: 12,
+        title: "Aftermovie",
+        category: "Event",
+        videoId: "UztIBA57glQ",
+        image: "/vignette-aftermovie.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 11,
+        title: "Bâtiment d'Entreprise",
+        category: "Immobilier",
+        videoId: "SVjf6eVvSUc",
+        image: "/vignette-batiment.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 10,
+        title: "Irlande du Nord",
+        category: "Voyage",
+        videoId: "TqgqQopESpE",
+        image: "/vignette-irlande.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 9,
+        title: "Ecosse",
+        category: "Voyage",
+        videoId: "TAwPWpWsLFE",
+        image: "/vignette-ecosse.jpg",
+        fit: "object-cover"
+    },
+    {
         id: 1,
         title: "Basketball",
         category: "Sport",
@@ -41,5 +81,19 @@ export const projects = [
         category: "Brand",
         videoId: "hTWKbfoikeg",
         image: "https://images.unsplash.com/photo-1518173946633-4da23fb077d8?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: 7,
+        title: "Villa Sunset",
+        category: "Immobilier",
+        videoId: "",
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        id: 8,
+        title: "Iceland Adventure",
+        category: "Voyage",
+        videoId: "",
+        image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80"
     },
 ];
