@@ -13,10 +13,32 @@ export default function ContactPage() {
         email: '',
         message: ''
     });
+    const [status, setStatus] = useState({ loading: false, success: false, error: false });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form submitted:', formState);
+        setStatus({ loading: true, success: false, error: false });
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formState),
+            });
+
+            if (response.ok) {
+                setStatus({ loading: false, success: true, error: false });
+                setFormState({ name: '', email: '', message: '' });
+                setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+            } else {
+                setStatus({ loading: false, success: false, error: true });
+            }
+        } catch (error) {
+            console.error('Submit error:', error);
+            setStatus({ loading: false, success: false, error: true });
+        }
     };
 
     return (
@@ -170,13 +192,27 @@ export default function ContactPage() {
                                 />
                             </div>
 
-                            <button
-                                type="submit"
-                                className="group flex items-center gap-3 bg-white text-neutral-950 px-10 py-5 rounded-full font-bold hover:bg-[#E3D5CA] transition-all duration-300 mt-4 text-lg"
-                            >
-                                <span>Envoyer le message</span>
-                                <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            <div className="flex flex-col gap-4 mt-4">
+                                <button
+                                    type="submit"
+                                    disabled={status.loading}
+                                    className="group flex items-center justify-center w-fit gap-3 bg-white text-neutral-950 px-10 py-5 rounded-full font-bold hover:bg-[#E3D5CA] transition-all duration-300 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    <span>{status.loading ? 'Envoi en cours...' : 'Envoyer le message'}</span>
+                                    {!status.loading && <Send size={20} className="group-hover:translate-x-1 transition-transform" />}
+                                </button>
+
+                                {status.success && (
+                                    <div className="text-green-500 font-medium bg-green-500/10 p-4 rounded-xl border border-green-500/20">
+                                        Message envoyé avec succès ! Je vous réponds au plus vite.
+                                    </div>
+                                )}
+                                {status.error && (
+                                    <div className="text-red-500 font-medium bg-red-500/10 p-4 rounded-xl border border-red-500/20">
+                                        Une erreur est survenue lors de l'envoi. Veuillez réessayer plus tard ou m'envoyer un email à vision.production34000@gmail.com.
+                                    </div>
+                                )}
+                            </div>
                         </form>
                     </motion.div>
                 </div>

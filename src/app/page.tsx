@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import VideoGallery from "@/components/VideoGallery";
-import AboutSection from "@/components/AboutSection";
 import PhotoCarousel from "@/components/PhotoCarousel";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -11,7 +10,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <VideoGallery />
-      <AboutSection />
       <PhotoCarousel />
       <Footer />
     </main>

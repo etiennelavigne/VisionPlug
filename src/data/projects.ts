@@ -4,7 +4,7 @@ export const projects = [
         title: "Reportage terrain",
         category: "Documentaire",
         videoId: "9N1dojylH2Y",
-        image: "https://img.youtube.com/vi/9N1dojylH2Y/maxresdefault.jpg",
+        image: "/vignette-admr.jpg",
         fit: "object-cover"
     },
 
@@ -21,7 +21,7 @@ export const projects = [
         title: "Étui à savon",
         category: "Produit",
         videoId: "lBjtBM1XFTQ",
-        image: "/vignette-etui-savon.png",
+        image: "/vignette-etui-savon-new.jpg",
         fit: "object-cover"
     },
     {
@@ -29,7 +29,7 @@ export const projects = [
         title: "Présentation Solution digitale",
         category: "Commercial",
         videoId: "VQ7Sugp3j9U",
-        image: "https://img.youtube.com/vi/VQ7Sugp3j9U/maxresdefault.jpg",
+        image: "/vignette-solution-digitale.jpg",
         fit: "object-cover"
     },
     {
