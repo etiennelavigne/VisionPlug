@@ -31,44 +31,47 @@ export default function VideoGallery() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.slice(0, 3).map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            layoutId={`card-${project.id}`}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ scale: 1.02 }}
-                            onClick={() => setSelectedId(project.id)}
-                            className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-lg"
-                        >
-                            {/* Background Image */}
-                            <div className={`absolute inset-0 bg-neutral-900`}>
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className={`w-full h-full ${project.fit || 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                            </div>
-
-                            {/* Center Play Button (only visible on hover) */}
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50">
-                                    <Play className="w-6 h-6 text-white fill-current" />
+                    {projects.filter(p => [12, 1, 9].includes(p.id))
+                        // Optional: sort them to appear in the specific order requested (Aftermovie, Basketball, Ecosse)
+                        .sort((a, b) => [12, 1, 9].indexOf(a.id) - [12, 1, 9].indexOf(b.id))
+                        .map((project, index) => (
+                            <motion.div
+                                key={project.id}
+                                layoutId={`card-${project.id}`}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                whileHover={{ scale: 1.02 }}
+                                onClick={() => setSelectedId(project.id)}
+                                className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-lg"
+                            >
+                                {/* Background Image */}
+                                <div className={`absolute inset-0 bg-neutral-900`}>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className={`w-full h-full ${project.fit || 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                                 </div>
-                            </div>
 
-                            {/* Content Overlay */}
-                            <div className="absolute bottom-0 left-0 p-6 w-full">
-                                <p className="text-xs font-medium text-orange-200/80 mb-1 tracking-wider uppercase">{project.category}</p>
-                                <div className="flex justify-between items-end">
-                                    <h3 className="text-2xl font-bold text-white leading-tight">{project.title}</h3>
+                                {/* Center Play Button (only visible on hover) */}
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50">
+                                        <Play className="w-6 h-6 text-white fill-current" />
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+
+                                {/* Content Overlay */}
+                                <div className="absolute bottom-0 left-0 p-6 w-full">
+                                    <p className="text-xs font-medium text-orange-200/80 mb-1 tracking-wider uppercase">{project.category}</p>
+                                    <div className="flex justify-between items-end">
+                                        <h3 className="text-2xl font-bold text-white leading-tight">{project.title}</h3>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
                 </div>
             </div>
 

@@ -18,6 +18,9 @@ export default function ProjectsPage() {
         ? projects
         : projects.filter(p => p.category === selectedCategory);
 
+    const mainProjects = filteredProjects.filter(p => p.category !== "Réseaux-Sociaux");
+    const socialProjects = filteredProjects.filter(p => p.category === "Réseaux-Sociaux");
+
     return (
         <main className="min-h-screen bg-neutral-950 text-white font-[family-name:var(--font-geist-sans)]">
             <Navbar />
@@ -52,50 +55,113 @@ export default function ProjectsPage() {
                         </div>
                     </motion.div>
 
-                    {/* Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <AnimatePresence mode="popLayout">
-                            {filteredProjects.map((project) => (
-                                <motion.div
-                                    key={project.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                    onClick={() => setSelectedId(project.id)}
-                                    className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-lg bg-neutral-900"
-                                >
-                                    {/* Image */}
-                                    <div className="absolute inset-0">
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110`}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                                    </div>
-
-                                    {/* Play Button */}
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
-                                        <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-                                            <Play className="w-6 h-6 text-white fill-white" />
+                    {/* Main Grid (Horizontal) */}
+                    {mainProjects.length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <AnimatePresence mode="popLayout">
+                                {mainProjects.map((project) => (
+                                    <motion.div
+                                        key={project.id}
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.3 }}
+                                        onClick={() => setSelectedId(project.id)}
+                                        className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-lg bg-neutral-900"
+                                    >
+                                        {/* Image */}
+                                        <div className="absolute inset-0">
+                                            <img
+                                                src={project.image}
+                                                alt={project.title}
+                                                className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110`}
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                                         </div>
-                                    </div>
 
-                                    {/* Content */}
-                                    <div className="absolute bottom-0 left-0 p-6 w-full">
-                                        <span className="inline-block px-3 py-1 mb-3 text-xs font-medium tracking-wider text-black bg-white rounded-full">
-                                            {project.category}
-                                        </span>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-[#E3D5ca] transition-colors">
-                                            {project.title}
-                                        </h3>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
-                    </div>
+                                        {/* Play Button */}
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                                            <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                                                <Play className="w-6 h-6 text-white fill-white" />
+                                            </div>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="absolute bottom-0 left-0 p-6 w-full">
+                                            <span className="inline-block px-3 py-1 mb-3 text-xs font-medium tracking-wider text-black bg-white rounded-full">
+                                                {project.category}
+                                            </span>
+                                            <h3 className="text-xl font-bold text-white group-hover:text-[#E3D5ca] transition-colors">
+                                                {project.title}
+                                            </h3>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
+                        </div>
+                    )}
+
+                    {/* Social Media Grid (Vertical) */}
+                    {socialProjects.length > 0 && (
+                        <div className="mt-24">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">CRÉATION DE CONTENU VERTICAL</h2>
+                                <div className="h-1 w-16 bg-[#E3D5CA] mb-12" />
+                            </motion.div>
+
+                            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+                                <AnimatePresence mode="popLayout">
+                                    {socialProjects.map((project) => (
+                                        <motion.div
+                                            key={project.id}
+                                            layout
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.9 }}
+                                            transition={{ duration: 0.3 }}
+                                            onClick={() => setSelectedId(project.id)}
+                                            className="group relative aspect-[9/16] rounded-2xl overflow-hidden cursor-pointer shadow-lg bg-neutral-900 border border-white/5"
+                                        >
+                                            {/* Image */}
+                                            <div className="absolute inset-0">
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110`}
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                                            </div>
+
+
+
+                                            {/* Play Button */}
+                                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                                                <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                                                    <Play className="w-5 h-5 text-white fill-white" />
+                                                </div>
+                                            </div>
+
+                                            {/* Content */}
+                                            <div className="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+                                                <span className="inline-block px-2 py-1 mb-2 text-[10px] md:text-xs font-medium tracking-wider text-black bg-white rounded-full">
+                                                    {project.category}
+                                                </span>
+                                                <h3 className="text-lg font-bold text-white group-hover:text-[#E3D5ca] transition-colors leading-tight">
+                                                    {project.title}
+                                                </h3>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </AnimatePresence>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </section>
 

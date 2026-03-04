@@ -1,27 +1,18 @@
 export const projects = [
     {
-        id: 18,
-        title: "Reportage terrain",
-        category: "Documentaire",
-        videoId: "9N1dojylH2Y",
-        image: "/vignette-admr.jpg",
-        fit: "object-cover"
-    },
-
-    {
-        id: 16,
-        title: "Teaser d'évènement",
+        id: 12,
+        title: "Aftermovie",
         category: "Event",
-        videoId: "pG9w9bqX_QY",
-        image: "https://img.youtube.com/vi/pG9w9bqX_QY/maxresdefault.jpg",
+        videoId: "UztIBA57glQ",
+        image: "/vignette-aftermovie.jpg",
         fit: "object-cover"
     },
     {
-        id: 15,
-        title: "Étui à savon",
-        category: "Produit",
-        videoId: "lBjtBM1XFTQ",
-        image: "/vignette-etui-savon-new.jpg",
+        id: 1,
+        title: "Basketball",
+        category: "Sport",
+        videoId: "LzrfOS0vvAI",
+        image: "/vignette-basketball-2.jpg",
         fit: "object-cover"
     },
     {
@@ -41,11 +32,35 @@ export const projects = [
         fit: "object-cover"
     },
     {
-        id: 12,
-        title: "Aftermovie",
+        id: 9,
+        title: "Ecosse",
+        category: "Voyage",
+        videoId: "TAwPWpWsLFE",
+        image: "/vignette-ecosse.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 23,
+        title: "Reportage Terrain",
+        category: "Documentaire",
+        videoId: "JkGl3W3y-Mo",
+        image: "https://img.youtube.com/vi/JkGl3W3y-Mo/maxresdefault.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 16,
+        title: "Teaser d'évènement",
         category: "Event",
-        videoId: "UztIBA57glQ",
-        image: "/vignette-aftermovie.jpg",
+        videoId: "pG9w9bqX_QY",
+        image: "https://img.youtube.com/vi/pG9w9bqX_QY/maxresdefault.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 15,
+        title: "Étui à savon",
+        category: "Produit",
+        videoId: "lBjtBM1XFTQ",
+        image: "/vignette-etui-savon-new.jpg",
         fit: "object-cover"
     },
     {
@@ -65,34 +80,28 @@ export const projects = [
         fit: "object-cover"
     },
     {
-        id: 9,
-        title: "Ecosse",
-        category: "Voyage",
-        videoId: "TAwPWpWsLFE",
-        image: "/vignette-ecosse.jpg",
-        fit: "object-cover"
-    },
-    {
-        id: 1,
-        title: "Basketball",
-        category: "Sport",
-        videoId: "LzrfOS0vvAI",
-        image: "/vignette-basketball-2.jpg",
-        fit: "object-cover"
-    },
-
-    {
         id: 3,
         title: "Kinésithérapeute",
         category: "Commercial",
         videoId: "HlnicLFmTdE",
         image: "/vignette-kine-2.jpg"
     },
-
-
-
-
-
+    {
+        id: 18,
+        title: "Reportage terrain",
+        category: "Documentaire",
+        videoId: "9N1dojylH2Y",
+        image: "/vignette-admr.jpg",
+        fit: "object-cover"
+    },
+    {
+        id: 24,
+        title: "Prise de parole",
+        category: "Réseaux-Sociaux",
+        videoId: "mI4VZE7RBkI",
+        image: "https://img.youtube.com/vi/mI4VZE7RBkI/maxresdefault.jpg",
+        fit: "object-cover"
+    },
     {
         id: 19,
         title: "Nouveaux-arrivants",
@@ -124,5 +133,5 @@ export const projects = [
         videoId: "Kuj7lWGmTqA",
         image: "https://img.youtube.com/vi/Kuj7lWGmTqA/maxresdefault.jpg",
         fit: "object-cover"
-    },
+    }
 ];
