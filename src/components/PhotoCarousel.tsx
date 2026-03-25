@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 
 const photos = [
+    { src: "/DSC03174.jpg", width: 675 }, // Added at beginning
     // Rotated to start with 13534823.jpg
     { src: "/carousel/pexels-vision-plug-310264943-13534823.jpg", width: 718 }, // ~16:10 (Landscape)
     { src: "/carousel/pexels-vision-plug-310264943-34759904.jpg", width: 338 }, // 3:4 (Moved earlier)
@@ -14,6 +15,7 @@ const photos = [
     { src: "/carousel/pexels-vision-plug-310264943-13987140.jpg", width: 305 }, // ~2:3
     { src: "/carousel/pexels-vision-plug-310264943-34760100.jpg", width: 300 }, // 2:3
     { src: "/carousel/pexels-vision-plug-310264943-13741351.jpg", width: 300 }, // 2:3
+    { src: "/DSC03172.jpg", width: 675 }, // Added in middle
     { src: "/carousel/DSC02070.jpg", width: 300 }, // ~2:3 (Separated)
     { src: "/carousel/pexels-vision-plug-310264943-34759590.jpg", width: 338 }, // 3:4
     { src: "/carousel/pexels-vision-plug-310264943-14281584.jpg", width: 800 }, // 16:9 (Landscape)
@@ -23,10 +25,10 @@ const photos = [
 ];
 
 // Calculate approximate width of one set of items
-// Sum of widths: 300+300+300+338+800+300+300+338+718+300+312+338+305 = 4949px
-// Plus gaps: 13 items * 24px (gap-6) = 312px
-// Total set width = 5261px
-const ONE_SET_WIDTH = 5261;
+// Sum of widths: 4949 + 1350 = 6299px
+// Plus gaps: 15 items * 24px (gap-6) = 360px
+// Total set width = 6659px
+const ONE_SET_WIDTH = 6659;
 
 export default function PhotoCarousel() {
     const containerRef = useRef<HTMLDivElement>(null);
