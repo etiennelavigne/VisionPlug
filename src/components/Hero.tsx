@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative w-full bg-neutral-950">
       {/* Hero Card with Rounded Bottom */}
-      <div className="relative w-full min-h-[90vh] bg-neutral-900 rounded-b-[3rem] md:rounded-b-[5rem] px-6 pt-48 md:pt-64 pb-12 md:px-16 flex flex-col justify-between overflow-hidden shadow-2xl shadow-neutral-900/50">
+      <div className="relative w-full min-h-[75vh] md:min-h-[90vh] bg-neutral-900 rounded-b-[3rem] md:rounded-b-[5rem] px-6 pt-40 md:pt-64 pb-12 md:px-16 flex flex-col justify-between overflow-hidden shadow-2xl shadow-neutral-900/50">
 
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -18,6 +18,8 @@ export default function Hero() {
             fill
             className="object-cover"
             priority
+            quality={90}
+            sizes="(max-width: 768px) 200vw, 100vw"
           />
           {/* Dark Overlay for readability */}
           <div className="absolute inset-0 bg-black/50 mix-blend-multiply" />
