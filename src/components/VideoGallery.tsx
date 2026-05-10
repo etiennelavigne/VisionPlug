@@ -20,7 +20,7 @@ export default function VideoGallery() {
                     className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6"
                 >
                     <div>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">DERNIÈRES RÉALISATIONS</h2>
+                        <h2 className="text-2xl md:text-5xl font-bold mb-4">DERNIÈRES RÉALISATIONS</h2>
                         <div className="h-1 w-20 bg-white/20" />
                     </div>
 
@@ -92,7 +92,7 @@ export default function VideoGallery() {
                         >
                             <button
                                 onClick={() => setSelectedId(null)}
-                                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-white/20 rounded-full text-white transition-colors"
+                                className="absolute top-2 right-2 md:top-4 md:right-4 z-10 p-2 bg-black/50 hover:bg-white/20 rounded-full text-white transition-colors"
                             >
                                 <X size={24} />
                             </button>

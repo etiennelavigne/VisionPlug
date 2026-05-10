@@ -35,7 +35,7 @@ export default function ProjectsPage() {
                         transition={{ duration: 0.6 }}
                         className="mb-12"
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6">RÉALISATIONS</h1>
+                        <h1 className="text-3xl md:text-6xl font-bold mb-6">RÉALISATIONS</h1>
                         <div className="h-1 w-20 bg-white/20 mb-8" />
 
                         {/* Filters */}
@@ -111,7 +111,7 @@ export default function ProjectsPage() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">CRÉATION DE CONTENU VERTICAL</h2>
+                                <h2 className="text-2xl md:text-4xl font-bold mb-4">CRÉATION DE CONTENU VERTICAL</h2>
                                 <div className="h-1 w-16 bg-[#E3D5CA] mb-12" />
                             </motion.div>
 
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                             initial={{ opacity: 0, rotate: -90 }}
                             animate={{ opacity: 1, rotate: 0 }}
                             exit={{ opacity: 0, rotate: 90 }}
-                            className="absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-colors bg-white/10 rounded-full"
+                            className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-2 text-white/70 hover:text-white transition-colors bg-white/10 rounded-full"
                             onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}
                         >
                             <X size={32} />

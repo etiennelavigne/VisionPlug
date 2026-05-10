@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative w-full bg-neutral-950">
       {/* Hero Card with Rounded Bottom */}
-      <div className="relative w-full min-h-[90vh] bg-neutral-900 rounded-b-[3rem] md:rounded-b-[5rem] px-6 pt-32 pb-12 md:px-16 flex flex-col justify-between overflow-hidden shadow-2xl shadow-neutral-900/50">
+      <div className="relative w-full min-h-[90vh] bg-neutral-900 rounded-b-[3rem] md:rounded-b-[5rem] px-6 pt-48 md:pt-64 pb-12 md:px-16 flex flex-col justify-between overflow-hidden shadow-2xl shadow-neutral-900/50">
 
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -34,16 +34,16 @@ export default function Hero() {
           {/* Top Label */}
 
 
-          <div className="flex flex-col md:flex-row gap-12 items-end">
+          <div className="flex flex-col md:flex-row gap-12 items-start md:items-end">
             {/* Big Title Mixed Typography */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex-1 text-7xl md:text-9xl font-bold text-white tracking-tight leading-[0.9]"
+              className="flex-1 text-6xl md:text-9xl font-bold text-white tracking-tight leading-[0.9]"
             >
               Vision<br />
-              <span className="font-[family-name:var(--font-handwritten)] font-normal ml-4 text-8xl md:text-[10rem] text-orange-200">Plug</span>
+              <span className="font-[family-name:var(--font-handwritten)] font-normal ml-4 text-6xl md:text-[10rem] text-orange-200">Plug</span>
             </motion.h1>
 
             {/* Right Description */}
@@ -66,7 +66,7 @@ export default function Hero() {
 
         {/* Bottom Services Columns */}
         <div className="relative z-10 w-full max-w-7xl mx-auto mt-16 md:mt-0">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-8">
             {[
               { id: "01", title: "Stratégie de Marque", icon: Sparkles },
               { id: "02", title: "Production Vidéo", icon: Video },

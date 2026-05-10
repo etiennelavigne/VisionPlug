@@ -127,7 +127,7 @@ export default function ContactPage() {
                         {/* Header */}
                         <div className="space-y-4">
                             <h5 className="text-[#E3D5CA] font-medium tracking-widest text-sm uppercase">Contact</h5>
-                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-none tracking-tight">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-none tracking-tight">
                                 Parlons de votre <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">Projet.</span>
                             </h1>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Social Links */}
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap gap-4">
                             <a href="mailto:vision.production34000@gmail.com" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#E3D5CA] hover:text-neutral-950 hover:border-[#E3D5CA] transition-all duration-300 flex items-center gap-2 group text-sm font-medium">
                                 <Mail size={16} /> <span>Email</span>
                             </a>

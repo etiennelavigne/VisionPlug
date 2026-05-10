@@ -62,7 +62,7 @@ export default function PhotoCarousel() {
             {/* Header */}
             <div className="container mx-auto px-6 md:px-16 mb-12 flex justify-between items-end">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">PHOTOGRAPHIE</h2>
+                    <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">PHOTOGRAPHIE</h2>
                     <div className="h-1 w-20 bg-orange-200" />
                 </div>
                 <a
@@ -94,8 +94,8 @@ export default function PhotoCarousel() {
                     {[...photos, ...photos, ...photos].map((photo, index) => (
                         <div
                             key={index}
-                            className="relative flex-shrink-0 overflow-hidden rounded-lg transition-transform duration-500 hover:scale-[1.02] h-[450px]"
-                            style={{ width: photo.width }}
+                            className="relative flex-shrink-0 overflow-hidden rounded-lg transition-transform duration-500 hover:scale-[1.02] h-[300px] md:h-[450px] w-[calc(0.66*var(--photo-width))] md:w-[var(--photo-width)]"
+                            style={{ '--photo-width': `${photo.width}px` } as React.CSSProperties}
                         >
                             <Image
                                 src={photo.src}
@@ -109,8 +109,8 @@ export default function PhotoCarousel() {
                 </motion.div>
 
                 {/* Visual Gradients */}
-                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-900 to-transparent pointer-events-none" />
-                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-900 to-transparent pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-900 to-transparent pointer-events-none hidden md:block" />
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-900 to-transparent pointer-events-none hidden md:block" />
             </div>
 
             {/* Mobile Button */}
@@ -121,7 +121,7 @@ export default function PhotoCarousel() {
                     rel="noopener noreferrer"
                     className="w-full text-center py-3 border border-white/20 rounded-full text-white/80 uppercase text-sm"
                 >
-                    Voir la galerie externe
+                    Voir la galerie complète
                 </a>
             </div>
 
