@@ -31,9 +31,9 @@ export default function VideoGallery() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.filter(p => [12, 1, 9].includes(p.id))
-                        // Optional: sort them to appear in the specific order requested (Aftermovie, Basketball, Ecosse)
-                        .sort((a, b) => [12, 1, 9].indexOf(a.id) - [12, 1, 9].indexOf(b.id))
+                    {projects.filter(p => [12, 1, 11].includes(p.id))
+                        // Optional: sort them to appear in the specific order requested (Aftermovie, Basketball, Bâtiment d'Entreprise)
+                        .sort((a, b) => [12, 1, 11].indexOf(a.id) - [12, 1, 11].indexOf(b.id))
                         .map((project, index) => (
                             <motion.div
                                 key={project.id}

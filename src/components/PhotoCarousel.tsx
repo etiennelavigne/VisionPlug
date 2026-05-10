@@ -16,7 +16,7 @@ const photos = [
     { src: "/carousel/pexels-vision-plug-310264943-34760100.jpg", width: 300 }, // 2:3
     { src: "/carousel/pexels-vision-plug-310264943-13741351.jpg", width: 300 }, // 2:3
     { src: "/DSC03172.jpg", width: 675 }, // Added in middle
-    { src: "/carousel/DSC02070.jpg", width: 300 }, // ~2:3 (Separated)
+
     { src: "/carousel/pexels-vision-plug-310264943-34759590.jpg", width: 338 }, // 3:4
     { src: "/carousel/pexels-vision-plug-310264943-14281584.jpg", width: 800 }, // 16:9 (Landscape)
     { src: "/carousel/pexels-vision-plug-310264943-13987144.jpg", width: 300 }, // 2:3
@@ -25,10 +25,10 @@ const photos = [
 ];
 
 // Calculate approximate width of one set of items
-// Sum of widths: 4949 + 1350 = 6299px
-// Plus gaps: 15 items * 24px (gap-6) = 360px
-// Total set width = 6659px
-const ONE_SET_WIDTH = 6659;
+// Sum of widths: 5999px
+// Plus gaps: 14 items * 24px (gap-6) = 336px
+// Total set width = 6335px
+const ONE_SET_WIDTH = 6335;
 
 export default function PhotoCarousel() {
     const containerRef = useRef<HTMLDivElement>(null);
