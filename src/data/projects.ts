@@ -16,6 +16,14 @@ export const projects = [
         fit: "object-cover"
     },
     {
+        id: 25,
+        title: "Golf",
+        category: "Sport",
+        videoId: "rzQbQ1p9qkc",
+        image: "/vignette-golf.jpg",
+        fit: "object-cover"
+    },
+    {
         id: 14,
         title: "Présentation Solution digitale",
         category: "Commercial",
